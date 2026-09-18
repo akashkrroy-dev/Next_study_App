@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import connectDB from "./src/lib/connectDB.js";
 import { connectRedis, redisClient } from "./src/lib/redis.js";
 import config from "./src/config/config.js";
+import smartCompression from "./src/middlewares/compression.js";
 
 // Routers
 import authRouter from "./src/modules/auth/auth.route.js";
@@ -41,6 +42,7 @@ if (allowedOrigins.length > 0) {
 }
 
 app.use(helmet());
+app.use(smartCompression());
 app.use(cookieParser());
 app.use(express.json({ limit: "1mb" }));
 
