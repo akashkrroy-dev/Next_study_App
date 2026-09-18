@@ -161,10 +161,12 @@ const Login = () => {
       return
     }
 
+    const email = form.email.trim().toLowerCase()
+
     try {
       const payload = {
         ...form,
-        email: form.email.trim().toLowerCase(),
+        email,
       }
 
       const res = await api.post("/auth/login", payload)
@@ -184,7 +186,7 @@ const Login = () => {
       toast.error(message)
 
       if (error.response?.data?.shouldRegister) {
-        navigate("/auth/register", { state: { email: payload.email } })
+        navigate("/auth/register", { state: { email } })
       }
       return
     }
