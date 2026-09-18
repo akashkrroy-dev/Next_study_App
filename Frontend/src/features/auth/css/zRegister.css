@@ -1,0 +1,305 @@
+/* ==========================================================================
+   Global reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   Register page (layout wrapper)
+   ========================================================================== */
+
+.register-page {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-clr-01);
+    position: relative;
+}
+
+
+/* ==========================================================================
+   Auth nav (top-right "login" / "sign up" link)
+   ========================================================================== */
+
+.auth-nav {
+    width: auto;
+    min-height: 2.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    margin: 0;
+    padding: 0.45rem 0.8rem 0.45rem 0.95rem;
+    border-radius: 999px;
+    color: var(--text-clr-02);
+    background: color-mix(in srgb, var(--base-clr-01) 72%, transparent);
+    border: 1px solid var(--border-clr-01);
+    box-shadow: 0 4px 14px var(--shadow-clr-01);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease,
+        border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.auth-nav:hover {
+    color: var(--accent-clr);
+    background: color-mix(in srgb, var(--accent-clr) 10%, var(--base-clr-02));
+    border-color: color-mix(in srgb, var(--accent-clr) 45%, var(--border-clr-01));
+    box-shadow: 0 6px 18px var(--shadow-clr-01);
+    transform: translateY(-1px);
+}
+
+.auth-nav:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.auth-nav:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
+.auth-nav svg {
+    transition: transform 0.2s ease;
+}
+
+.auth-nav:hover svg {
+    transform: translateX(2px);
+}
+
+
+/* ==========================================================================
+   Auth header (title + subtitle)
+   ========================================================================== */
+
+.auth-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-header-h {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-clr-01);
+}
+
+.auth-header p,
+.auth-header-p {
+    width: 92%;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--text-clr-04);
+}
+
+.auth-header-p span {
+    color: var(--text-clr-02);
+    font-weight: 500;
+}
+
+/* login page uses extra vertical spacing */
+.login-header {
+    padding: 2.25rem 0 1.25rem;
+}
+
+.register-header {
+    padding: 2.25rem 0 0.75rem;
+}
+
+
+/* ==========================================================================
+   Auth form (inputs + submit button)
+   ========================================================================== */
+
+.auth-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.auth-form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.auth-form div label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-clr-04);
+}
+
+.auth-form div input {
+    height: 2.6rem;
+    border: 1px solid var(--border-clr-01);
+    border-radius: var(--radius-sm);
+    outline: none;
+    padding: 1rem;
+    background-color: var(--base-clr-01);
+    color: var(--text-clr-02);
+    font-family: inherit;
+    font-size: 0.88rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form div input::placeholder {
+    color: var(--text-clr-04);
+    opacity: 0.8;
+}
+
+.auth-form div input:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--accent-clr) 55%, var(--border-clr-01));
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* submit button wrapper */
+.auth-form .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form .btn button {
+    width: 100%;
+    height: 2.7rem;
+    margin-top: 0.75rem;
+    border: none;
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+
+    background: var(--accent-clr);
+    color: #fff;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.auth-form .btn button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.auth-form .btn button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.auth-form .btn button:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.18),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.auth-form .btn button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* click ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    transform: scale(0);
+}
+
+
+/* forgot password */
+.forgot-password{
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: end;
+    color: var(--text-clr-04);
+}
+
+.forgot-password:hover {
+    color: var(--accent-clr);
+}
+
+/* adding eye btn */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 2.8rem; /* room for the eye button */
+}
+
+.eye-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-clr-02);
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.5;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye-btn:hover {
+    opacity: 1;
+}

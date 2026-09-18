@@ -1,0 +1,114 @@
+.logout_panel > h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-clr-01);
+  margin: 0 0 6px;
+}
+
+.logout_panel > .globale_header {
+  margin-bottom: 2rem;
+}
+
+.logout_lede {
+  color: var(--text-clr-04);
+  font-size: 14px;
+  margin: 0 0 28px;
+  max-width: 48ch;
+}
+
+.logout_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 480px;
+  padding: 14px 16px;
+  background-color: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.logout_info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.logout_title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-clr-01);
+}
+
+.logout_sub {
+  font-size: 12.5px;
+  color: var(--text-clr-04);
+}
+
+.logout_btn {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  background-color: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  color: var(--text-clr-02);
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color .15s ease, background-color .15s ease, color .15s ease, opacity .15s ease;
+}
+
+.logout_btn:hover:not(:disabled) {
+  background-color: var(--hover-clr-01);
+  border-color: var(--royal-blue);
+  color: var(--text-clr-01);
+}
+
+.logout_btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.logout_btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.logout_btn_danger {
+  color: var(--crimson-red);
+  border-color: color-mix(in srgb, var(--crimson-red) 40%, var(--border-clr-01));
+}
+
+.logout_btn_danger:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--crimson-red) 12%, var(--base-clr-02));
+  border-color: var(--crimson-red);
+  color: var(--crimson-red);
+}
+
+.logout_btn_confirm {
+  background-color: var(--crimson-red);
+  border-color: var(--crimson-red);
+  color: #fff;
+}
+
+.logout_btn_confirm:hover:not(:disabled) {
+  background-color: var(--crimson-red);
+  color: #fff;
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .logout_row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logout_btn {
+    width: 100%;
+  }
+}

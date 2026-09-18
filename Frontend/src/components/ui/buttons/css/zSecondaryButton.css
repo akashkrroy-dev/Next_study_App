@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Secondary button — outline / ghost variant
+   ========================================================================== */
+
+.secondary-btn {
+    min-width: 76px;
+    height: 2.6rem;
+    padding: 0 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+
+    background: none;
+    color: var(--text-clr-02);
+    border: 1px solid var(--border-clr-01);
+    border-radius: 999px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background-color: var(--hover-clr-01);
+    border-color: var(--accent-clr);
+    color: var(--text-clr-01);
+}
+
+.secondary-btn:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+.secondary-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.secondary-btn__icon {
+    flex-shrink: 0;
+}
+
+/* icon-only (no text) — square-ish instead of pill-wide */
+.secondary-btn:has(.secondary-btn__icon):not(:has(span)) {
+    min-width: 2.6rem;
+    padding: 0;
+}

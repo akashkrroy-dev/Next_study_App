@@ -1,0 +1,55 @@
+.todos_shoing {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.todos_section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todos_section_title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-clr-01);
+}
+
+.todos_section_title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-clr-01);
+    margin-left: 0.375rem;
+}
+
+.todos_section_count {
+    font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-clr-02);
+    background: color-mix(in srgb, var(--border-clr-01) 50%, transparent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+}
+
+.no_todos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8rem;
+    text-align: center;
+}
+
+.no_todos p {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-clr-02);
+}

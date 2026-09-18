@@ -1,0 +1,42 @@
+.noti_sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notification_section_warraper{
+  padding-top: 1rem;
+}
+
+.noti_sections + .noti_sections {
+  margin-top: 1.25rem;
+}
+
+.noti_sections > h3 {
+  margin: 0 0 0.25rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-clr-04);
+}
+
+.no_notification_warraper {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-clr-02);
+  opacity: 0.5;
+  text-align: center;
+}
+
+.no_notification_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}

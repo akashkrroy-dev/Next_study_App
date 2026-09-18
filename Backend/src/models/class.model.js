@@ -1,0 +1,23 @@
+import mongoose from "mongoose";
+
+const schema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    timeTableId: { type: mongoose.Schema.Types.ObjectId, ref: "Timetable", required: true },
+    subjectId: { type: String, required: true },
+    name: { type: String, required: true },
+
+    startTime: { type: String, required: true },
+    endTime: { type: String, required: true },
+    day: { type: Number, min: 0, max: 6, required: true },
+    
+    color: { type: String, required: true },
+    notify: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true }
+}, { timestamps: true })
+
+schema.index({ userId: 1, day: 1, isActive: 1 })
+schema.index({ userId: 1, timeTableId: 1, isActive: 1 })
+schema.index({ timeTableId: 1, day: 1 })
+const classModel = mongoose.model("Class", schema)
+
+export default classModel;

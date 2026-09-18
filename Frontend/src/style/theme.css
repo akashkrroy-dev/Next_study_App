@@ -1,0 +1,64 @@
+:root[data-theme="DARK"] {
+    color-scheme: dark;
+
+    --base-clr-01: #141210;
+    --base-clr-02: #1c1916;
+    --base-clr-03: #2a2622;
+    --base-clr-04: #8a8378;
+
+    --text-clr-01: #f6f1e8;
+    --text-clr-02: #e4ddd2;
+    --text-clr-03: #c4bdb0;
+    --text-clr-04: #9a9286;
+
+    --shadow-clr-01: rgba(0, 0, 0, 0.42);
+    --border-clr-01: rgba(246, 241, 232, 0.10);
+    --hover-clr-01: rgba(246, 241, 232, 0.06);
+
+    --scrollbar-track: rgba(246, 241, 232, 0.04);
+    --scrollbar-thumb: rgba(246, 241, 232, 0.18);
+    --scrollbar-thumb-hover: rgba(246, 241, 232, 0.28);
+
+    --dot-clr: rgba(246, 241, 232, 0.14);
+    --glow-clr: rgba(91, 122, 245, 0.55);
+}
+
+:root[data-theme="LIGHT"] {
+    color-scheme: light;
+
+    --base-clr-01: #f4f1ea;
+    --base-clr-02: #fffdf8;
+    --base-clr-03: #ebe6dc;
+    --base-clr-04: #c9c2b5;
+
+    --text-clr-01: #1a1714;
+    --text-clr-02: #2c2824;
+    --text-clr-03: #5c564e;
+    --text-clr-04: #8a8378;
+
+    --shadow-clr-01: rgba(26, 23, 20, 0.08);
+    --border-clr-01: rgba(26, 23, 20, 0.10);
+    --hover-clr-01: rgba(26, 23, 20, 0.045);
+
+    --scrollbar-track: rgba(26, 23, 20, 0.04);
+    --scrollbar-thumb: rgba(26, 23, 20, 0.16);
+    --scrollbar-thumb-hover: rgba(26, 23, 20, 0.26);
+
+    --dot-clr: rgba(26, 23, 20, 0.12);
+    --glow-clr: rgba(79, 110, 247, 0.45);
+}
+
+:root {
+    --royal-blue: #4f6ef7;
+    --accent-clr: #4f6ef7;
+    --accent-soft: color-mix(in srgb, var(--accent-clr) 16%, transparent);
+    --forest-green: #3d8b62;
+    --crimson-red: #d64545;
+    --light-crime: #f8f3f0;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --font-family-01: "Poppins", system-ui, sans-serif;
+    --font-display: "ClashDisplay", "Poppins", system-ui, sans-serif;
+}

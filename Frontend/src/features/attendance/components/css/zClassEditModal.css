@@ -1,0 +1,211 @@
+.class-edit-modal__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  padding: 1rem;
+  z-index: 1000;
+  animation: overlay-fade 0.15s ease-out;
+}
+
+.class-edit-modal {
+  width: 100%;
+  max-width: 360px;
+  background: var(--base-clr-01);
+  color: var(--text-clr-01);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  font-family: "Poppins", sans-serif;
+  animation: modal-pop 0.18s ease-out;
+}
+
+.class-edit-modal__header,
+.class-edit-modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.class-edit-modal__header {
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.class-edit-modal__header p {
+  margin: 0;
+  font-family: "ClashDisplay", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.class-edit-modal__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom dropdown, replaces native <select> */
+.class-edit-modal__dropdown {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.class-edit-modal__dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--accent-clr);
+  border-radius: 999px;
+  background: var(--base-clr-02);
+  color: var(--text-clr-01);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.class-edit-modal__dropdown-trigger:focus,
+.class-edit-modal__dropdown-trigger:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.class-edit-modal__dropdown-trigger span:nth-child(2) {
+  flex: 1;
+  text-align: left;
+}
+
+.class-edit-modal__chevron {
+  transition: transform 0.15s ease;
+  opacity: 0.6;
+}
+
+.class-edit-modal__chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.class-edit-modal__dropdown-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: var(--base-clr-01);
+  border: 1px solid var(--accent-clr);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  padding: 0.35rem;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 999;
+  animation: dropdown-fade 0.12s ease-out;
+}
+
+
+.class-edit-modal__dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-clr-01);
+  font-family: inherit;
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.class-edit-modal__dropdown-option:focus,
+.class-edit-modal__dropdown-option:focus-visible {
+  outline: none;
+}
+
+.class-edit-modal__dropdown-option:hover {
+  background: color-mix(in srgb, var(--accent-clr) 12%, transparent);
+}
+
+.class-edit-modal__dropdown-option.is-selected {
+  background: color-mix(in srgb, var(--accent-clr) 18%, transparent);
+  font-weight: 500;
+}
+
+/* Preview chip: [dot + hex] then class name */
+.class-edit-modal__preview {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.class-edit-modal__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-clr) 8%, var(--base-clr-01));
+  border: 1px solid color-mix(in srgb, var(--accent-clr) 30%, transparent);
+}
+
+.class-edit-modal__hex {
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+.class-edit-modal__class-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--text-clr-01) 10%, transparent);
+}
+
+.class-edit-modal__actions {
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+@keyframes overlay-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdown-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,36 @@
+.timetable_create_warrper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 18rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.timetable_create_warrper h3,
+.timetable_create_warrper p {
+  margin: 0;
+}
+
+.timetable_create_warrper h3 {
+  margin-bottom: 0.35rem;
+  color: var(--text-clr-01);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.timetable_create_warrper p {
+  max-width: 22rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-clr-02);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 40rem) {
+  .timetable_create_warrper {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

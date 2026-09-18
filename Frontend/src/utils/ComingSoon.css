@@ -1,0 +1,128 @@
+.coming-soon {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.coming-soon-card {
+  max-width: 480px;
+  width: 100%;
+  background: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: left;
+}
+
+.coming-soon-tag {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--accent-clr);
+  border: 1px solid var(--accent-clr);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+}
+
+.coming-soon-headline {
+  font-family: "ClashDisplay", sans-serif;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--text-clr-01);
+  margin: 0 0 12px;
+}
+
+.coming-soon-body {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--text-clr-02);
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.coming-soon-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.coming-soon-points li {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text-clr-01);
+  padding-left: 18px;
+  position: relative;
+}
+
+.coming-soon-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-clr);
+}
+
+.coming-soon-form {
+  display: flex;
+  gap: 8px;
+}
+
+.coming-soon-form input {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text-clr-01);
+  background: var(--base-clr-01);
+  border: 1px solid var(--border-clr-01);
+  border-radius: 999px;
+  padding: 10px 16px;
+  outline: none;
+}
+
+.coming-soon-form input:focus {
+  border-color: var(--accent-clr);
+}
+
+.coming-soon-form button {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  background: var(--accent-clr);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.coming-soon-confirm {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--accent-clr);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .coming-soon-card {
+    padding: 28px;
+    border-radius: 18px;
+  }
+
+  .coming-soon-headline {
+    font-size: 22px;
+  }
+
+  .coming-soon-form {
+    flex-direction: column;
+  }
+}

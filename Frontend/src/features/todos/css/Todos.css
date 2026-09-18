@@ -1,0 +1,329 @@
+/* * WRAPPER CSS */
+
+.todos_wrapper {
+    width: 100%;
+    min-height: 30rem;
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+    background: var(--base-clr-01);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.todos_wrapper > .globale_header {
+    margin-bottom: 0.25rem;
+}
+
+.todos_analythics {
+    font-family: "ClashDisplay", "Poppins", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-clr-01);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.todos_analythics > p {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-clr-02);
+}
+
+/* * NEW TODO CSS */
+
+.new_todos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--base-clr-02);
+    border: 1px solid var(--border-clr-01);
+    border-radius: 0.75rem;
+}
+
+.todo_input_warapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* first row -> input + add, SEPARATE elements */
+
+.todo_input_warapper > div:first-child {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.6rem;
+}
+
+.todo_input_warapper textarea {
+    flex: 1;
+    min-width: 120px;
+    box-sizing: border-box;
+    min-height: 2.4rem;
+    max-height: 7.5rem;
+    padding: 0.55rem 0.15rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: var(--text-clr-01);
+    font-family: "Poppins", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    resize: none;
+    overflow-y: hidden;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.todo_input_warapper textarea::placeholder {
+    color: var(--text-clr-02);
+    opacity: 0.65;
+}
+
+.todo_input_warapper textarea:hover {
+    border-color: var(--border-clr-01);
+}
+
+.todo_input_warapper textarea:focus {
+    border-color: color-mix(in srgb, var(--accent-clr, var(--text-clr-02)) 55%, transparent);
+}
+
+/* char-limit exceeded: red border that can't be overridden by :focus/:active
+   or hover — once the limit is hit the red state wins until it's fixed. */
+.todo_input_warapper textarea.is-over-limit {
+    border-color: var(--crimson-red, #d64545) !important;
+    background: color-mix(in srgb, var(--crimson-red, #d64545) 6%, transparent) !important;
+}
+
+.todo_input_warapper textarea.is-over-limit::placeholder {
+    color: var(--crimson-red, #d64545);
+    opacity: 0.85;
+}
+
+/* thin, unobtrusive scrollbar once the textarea hits its max-height */
+.todo_input_warapper textarea::-webkit-scrollbar {
+    width: 4px;
+}
+
+.todo_input_warapper textarea::-webkit-scrollbar-thumb {
+    background: var(--border-clr-01);
+    border-radius: 999px;
+}
+
+/* add btn -> mode-btn style from inspiration */
+
+.todo-add-button {
+    min-height: inherit;
+    flex-shrink: 0;
+}
+
+/* second row -> priority + dueDate + category, small chips */
+
+.todo_input_warapper > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.todo_input_warapper button.add_priority,
+.todo_input_warapper button.dueDate,
+.todo_input_warapper button.add_category {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    height: 1.85rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--border-clr-01);
+    border-radius: 999px;
+    background: var(--base-clr-01);
+    color: var(--text-clr-02);
+    font-family: "Poppins", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.todo_input_warapper button.add_priority:hover,
+.todo_input_warapper button.dueDate:hover,
+.todo_input_warapper button.add_category:hover {
+    border-color: color-mix(in srgb, var(--text-clr-02) 40%, var(--border-clr-01));
+    color: var(--text-clr-01);
+    transform: translateY(-1px);
+}
+
+.todo_input_warapper button.add_priority svg,
+.todo_input_warapper button.dueDate svg,
+.todo_input_warapper button.add_category svg {
+    width: 13px;
+    height: 13px;
+    opacity: 0.75;
+}
+
+/* keep the chip visibly "open" while its dropdown is showing */
+.dropdown_wrap:has(.drop_down_section) button.add_priority,
+.dropdown_wrap:has(.drop_down_section) button.dueDate,
+.dropdown_wrap:has(.drop_down_section) button.add_category {
+    border-color: color-mix(in srgb, var(--text-clr-01) 45%, var(--border-clr-01));
+    color: var(--text-clr-01);
+    background: color-mix(in srgb, var(--base-clr-01) 92%, var(--text-clr-01));
+}
+
+/* * TODOS LIST CSS */
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* row wrapping filter pills + refresh button */
+
+.todos > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-clr-01);
+    padding-bottom: 0.5rem;
+}
+
+.todos_options_show {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.todos_options_show > div {
+    padding: 0.35rem 0.875rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-clr-02);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.todos_options_show > div:hover {
+    background: color-mix(in srgb, var(--border-clr-01) 50%, transparent);
+    color: var(--text-clr-01);
+}
+
+.todos_options_show > div.active_show_option {
+    background: var(--accent-clr, var(--text-clr-02));
+    color: var(--base-clr-01);
+}
+
+.todos_shoing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todos_state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8rem;
+    color: var(--text-clr-02);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.todos_state--error {
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.todos_state p {
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .todos_wrapper {
+        padding: 1rem;
+    }
+
+    .todos > div:first-child {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .todos > div:first-child > .global-btn {
+        align-self: flex-end;
+    }
+}
+
+.dropdown_wrap {
+    position: relative;
+}
+
+.drop_down_section {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 100%;
+    background: var(--base-clr-01);
+    border: 1px solid var(--border-clr-01);
+    border-radius: 0.6rem;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 0.85rem 1.75rem var(--shadow-clr-01);
+    padding: 0.3rem;
+    transform-origin: top left;
+    animation: dropdown-in 0.14s ease-out;
+}
+
+@keyframes dropdown-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dorp_down_element {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 0.4rem;
+    background: transparent;
+    padding: 0.45rem 0.75rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-clr-01);
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: left;
+    transition: background 0.12s ease, padding-left 0.12s ease;
+}
+
+.dorp_down_element:hover {
+    background: var(--base-clr-02);
+    padding-left: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .drop_down_section,
+    .todo_input_warapper button.add_priority,
+    .todo_input_warapper button.dueDate,
+    .todo_input_warapper button.add_category,
+    .dorp_down_element {
+        animation: none;
+        transition: none;
+    }
+}

@@ -1,0 +1,207 @@
+.account_panel > h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-clr-01);
+  margin: 0 0 6px;
+}
+
+.account_panel > .globale_header,
+.profile_apperance > .globale_header,
+.password_panel > .globale_header,
+.notifications_panel > .globale_header,
+.logout_panel > .globale_header {
+  margin-bottom: 2rem;
+}
+
+.account_lede {
+  color: var(--text-clr-04);
+  font-size: 14px;
+  margin: 0 0 28px;
+  max-width: 48ch;
+}
+
+/* * PROFILE IMAGE */
+
+.profile_identity {
+  display: flex;
+  max-width: 340px;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-clr-01);
+}
+
+.avatar_upload_btn {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.avatar_upload_overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--base-clr-01, #000) 55%, transparent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.avatar_upload_btn:hover .avatar_upload_overlay,
+.avatar_upload_btn:focus-visible .avatar_upload_overlay {
+  opacity: 1;
+}
+
+.avatar_upload_btn:focus-visible {
+  outline: 2px solid var(--accent-clr);
+  outline-offset: 2px;
+}
+
+.profile_identity_text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile_identity_text strong {
+  overflow: hidden;
+  color: var(--text-clr-01);
+  font-size: 16px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile_identity_text > span {
+  overflow: hidden;
+  color: var(--text-clr-04);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.change_photo_btn {
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-clr);
+  font: 600 12px "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.change_photo_btn:hover {
+  text-decoration: underline;
+}
+
+.account_section_heading {
+  max-width: 340px;
+  margin-bottom: 16px;
+}
+
+.account_section_heading span {
+  color: var(--text-clr-02);
+  font: 600 14px "Poppins", sans-serif;
+}
+
+.account_section_heading p {
+  margin: 3px 0 0;
+  color: var(--text-clr-04);
+  font-size: 12px;
+}
+
+.account_fields {
+  max-width: 340px;
+}
+
+/* * FIELDS */
+
+.field {
+  margin-bottom: 18px;
+  max-width: 340px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-clr-04);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  background-color: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  color: var(--text-clr-02);
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  outline: none;
+  transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+
+.field input:hover {
+  background-color: var(--hover-clr-01);
+}
+
+.field input:focus {
+  border-color: var(--accent-clr);
+  box-shadow: 0 2px 8px var(--shadow-clr-01);
+}
+
+.field select {
+  width: 100%;
+  appearance: none;
+  background: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  border-radius: 7px;
+  color: var(--text-clr-02);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 12px;
+}
+
+.field select:focus {
+  border-color: var(--accent-clr);
+  outline: none;
+  box-shadow: 0 2px 8px var(--shadow-clr-01);
+}
+
+.field small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-clr-04);
+  font-size: 11px;
+}
+
+.field input::placeholder {
+  color: var(--base-clr-04);
+}
+
+.field input:disabled {
+  background-color: var(--base-clr-02);
+  color: var(--text-clr-04);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.field input:disabled:hover {
+  background-color: var(--base-clr-02);
+}

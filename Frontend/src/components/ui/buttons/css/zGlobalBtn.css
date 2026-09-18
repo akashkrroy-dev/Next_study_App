@@ -1,0 +1,43 @@
+.global-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--text-clr-01);
+  border-radius: 999px;
+  color: var(--base-clr-01) !important;
+  background: var(--text-clr-01);
+  cursor: pointer;
+  font-family: var(--font-family-01);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.global-btn > span {
+  color: var(--base-clr-01);
+}
+
+.global-btn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.global-btn--with-icon {
+  gap: 0.375rem;
+}
+
+.global-btn__icon {
+  flex: 0 0 auto;
+}
+
+.global-btn:focus-visible {
+  outline: 2px solid var(--accent-clr);
+  outline-offset: 2px;
+}
+
+.global-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

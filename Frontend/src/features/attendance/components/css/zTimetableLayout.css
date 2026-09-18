@@ -1,0 +1,115 @@
+.timetable-hour-grid {
+  --label-width: 5rem;
+  --row-height: 3.5rem;
+  display: grid;
+  grid-template-columns: var(--label-width) repeat(12, minmax(4rem, 1fr));
+  position: relative;
+  min-width: 53rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--base-clr-01);
+}
+
+.timetable-hour-grid__corner,
+.timetable-hour-grid__hour {
+  display: flex;
+  align-items: center;
+  min-height: 2rem;
+  border-bottom: 1px solid var(--border-clr-01);
+}
+
+.timetable-hour-grid__corner {
+  border-right: 1px solid var(--border-clr-01);
+}
+
+.timetable-hour-grid__hour {
+  position: relative;
+  padding-left: 0.25rem;
+  color: var(--text-clr-02);
+  font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 0.7rem;
+}
+
+.timetable-hour-grid__hour::before {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0;
+  width: 1px;
+  content: "";
+  background: var(--border-clr-01);
+}
+
+.timetable-hour-grid__day-row {
+  display: contents;
+}
+
+.timetable-hour-grid__day-label,
+.timetable-hour-grid__slot {
+  min-height: var(--row-height);
+  box-sizing: border-box;
+}
+
+.timetable-hour-grid__day-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  color: var(--text-clr-01);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.timetable-hour-grid__day-label span:last-child {
+  color: var(--text-clr-02);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.timetable-hour-grid__slot {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: default;
+}
+
+.timetable-hour-grid__slot--editable {
+  cursor: crosshair;
+}
+
+.timetable-hour-grid__slot--editable:hover {
+  background: color-mix(in srgb, var(--accent-clr) 10%, transparent);
+}
+
+.timetable-hour-grid__day-row:nth-of-type(odd) .timetable-hour-grid__day-label,
+.timetable-hour-grid__day-row:nth-of-type(odd) .timetable-hour-grid__slot {
+  background: color-mix(in srgb, var(--border-clr-01) 35%, transparent);
+}
+
+.timetable-hour-grid__classes {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  bottom: 0;
+  left: var(--label-width);
+  pointer-events: none;
+}
+
+.timetable-hour-grid__resize {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.45rem;
+  cursor: ew-resize;
+}
+
+.timetable-hour-grid__resize--left { left: 0; }
+.timetable-hour-grid__resize--right { right: 0; }
+
+@media (max-width: 58rem) {
+  .timetable-hour-grid {
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,48 @@
+/* Subject target progress bars */
+
+.target-analytics__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.target-analytics {
+  min-height: 11rem;
+}
+
+.target-analytics__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--text-clr-01);
+  font-size: 0.8rem;
+}
+
+.target-analytics__label span,
+.target-analytics__item small {
+  color: var(--text-clr-02);
+  font-size: 0.7rem;
+}
+
+.target-analytics__bar {
+  position: relative;
+  height: 0.5rem;
+  margin: 0.5rem 0 0.35rem;
+  border-radius: 999px;
+  background: var(--base-clr-03);
+}
+
+.target-analytics__bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-clr);
+}
+
+.target-analytics__bar i {
+  position: absolute;
+  top: -0.15rem;
+  width: 2px;
+  height: 0.8rem;
+  background: var(--text-clr-01);
+}

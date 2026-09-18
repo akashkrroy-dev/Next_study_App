@@ -1,0 +1,303 @@
+/* Overlay, modal chrome, fields, copy row, and footer */
+
+.timetable-form-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.timetable-form {
+  width: 100%;
+  max-width: 34rem;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--base-clr-02);
+  color: var(--text-clr-01);
+  border: 1px solid var(--border-clr-01);
+  border-radius: var(--radius-md, 0.75rem);
+  box-shadow: 0 12px 36px var(--shadow-clr-01);
+  overflow: hidden;
+}
+
+.timetable-form__header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border-clr-01);
+}
+
+.timetable-form__header h4 {
+  margin: 0;
+  font-family: var(--font-display, var(--font-family-01));
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-clr-01);
+}
+
+.timetable-form__close-btn {
+  background: none;
+  border: none;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--text-clr-04);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm, 0.35rem);
+  transition: color 0.15s ease;
+}
+
+.timetable-form__close-btn:hover {
+  color: var(--text-clr-01);
+}
+
+.timetable-form__content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.timetable-form__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.1rem 1.25rem;
+  overflow-y: auto;
+}
+
+.form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-field > span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-clr-04);
+}
+
+.form-field em {
+  font-style: normal;
+  text-transform: none;
+  opacity: 0.75;
+}
+
+.form-field input {
+  height: 2.25rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: var(--radius-sm, 0.4rem);
+  outline: none;
+  padding: 0 0.75rem;
+  background-color: var(--base-clr-01);
+  color: var(--text-clr-01);
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field input::placeholder {
+  color: var(--text-clr-04);
+  opacity: 0.7;
+}
+
+.form-field input:focus {
+  border-color: var(--accent-clr);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.form-field input[readonly] {
+  cursor: default;
+}
+
+.form-field .smart-date-input {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: var(--radius-sm, 0.4rem);
+  background-color: var(--base-clr-01);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field .smart-date-input:focus-within {
+  border-color: var(--accent-clr);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.form-field .smart-date-input--invalid,
+.form-field .smart-date-input--invalid:focus-within {
+  border-color: var(--crimson-red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--crimson-red) 20%, transparent);
+}
+
+.form-field .smart-date-input input {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 0.1rem;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text-clr-01);
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-align: center;
+  caret-color: var(--accent-clr);
+  box-shadow: none;
+  transition: none;
+}
+
+.form-field .smart-date-input input:focus {
+  box-shadow: none;
+}
+
+.form-field .smart-date-input input[data-segment="dd"],
+.form-field .smart-date-input input[data-segment="mm"] {
+  flex-grow: 1;
+  max-width: 1.45rem;
+}
+
+.form-field .smart-date-input input[data-segment="yyyy"] {
+  flex-grow: 2;
+  max-width: 2.9rem;
+}
+
+.form-field .smart-date-input input::placeholder {
+  color: var(--text-clr-04);
+  opacity: 0.55;
+}
+
+.form-field .smart-date-input__sep {
+  flex: 0 0 auto;
+  width: 0.55rem;
+  text-align: center;
+  color: var(--text-clr-04);
+  opacity: 0.35;
+  font-size: 0.7rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.form-field .smart-date-input__sep::before {
+  content: "\2022";
+}
+
+.form-field__copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-field__copy input {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-field__privacy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: 0.5rem;
+  background: var(--base-clr-02);
+}
+
+.form-field__privacy-label {
+  font-size: 0.8rem;
+  color: var(--text-clr-02);
+  line-height: 1.4;
+}
+
+.toggle_btn {
+  position: relative;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background-color: var(--base-clr-01);
+  border: 1px solid var(--border-clr-01);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.toggle_btn::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--base-clr-04);
+  transition: transform .18s ease, background-color .18s ease;
+}
+
+.toggle_btn.on {
+  background-color: rgba(1, 75, 186, 0.18);
+  border-color: var(--royal-blue);
+}
+
+.toggle_btn.on::after {
+  transform: translateX(18px);
+  background-color: var(--royal-blue);
+}
+
+.form-section--row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.timetable-form__message {
+  margin: 0;
+  color: var(--text-clr-02);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.timetable-form__error {
+  font-size: 0.75rem;
+  color: var(--crimson-red);
+  margin: 0;
+}
+
+.timetable-form__actions {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--border-clr-01);
+  background: var(--base-clr-02);
+}
+
+.timetable-form__actions .global-btn,
+.timetable-form__actions .secondary-btn,
+.form-field__copy .secondary-btn {
+  height: 2.25rem;
+  min-height: 2.25rem;
+}

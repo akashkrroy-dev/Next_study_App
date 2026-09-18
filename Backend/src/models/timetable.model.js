@@ -1,0 +1,44 @@
+import mongoose from "mongoose";
+
+const schema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    uuid: { type: String, required: true, },
+    slug: { type: String, required: true, },
+    name: { type: String, required: true },
+    version: { type: Number, required: true },
+
+    isActive: { type: Boolean, default: true },
+    startDate: { type: Date, required: true },
+    endDate: { type: Date, default: null },
+    deactivatedAt: { type: Date, default: null },
+
+    visibility: { type: String, enum: ["public", "private"], default: "public" },
+
+    strictMode: { type: Boolean, default: false },
+    isSunday: { type: Boolean, default: true },
+
+    subjects: [
+        { 
+            subjectId: { type: String, required: true },
+            name:{ type: String, required: true },
+            color: String,
+            classes: [             
+                { type: Number, min: 0, max: 6, required: true },
+            ],
+            target: {
+                type: String,
+                default: "75",
+                match: /^(?:100|[0-9]{1,2})$/,
+            },
+        }
+    ]
+}, { timestamps: true })
+
+schema.index({ userId: 1, isActive: 1 })
+schema.index({ userId: 1, startDate: 1, endDate: 1 })
+schema.index({ uuid: 1, userId: 1 })
+schema.index({ slug: 1 })
+
+const timetableModel = mongoose.model("Timetable", schema)
+
+export default timetableModel;

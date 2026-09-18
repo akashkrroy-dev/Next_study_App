@@ -1,0 +1,210 @@
+/* ==========================================================================
+   OTP popup — overlay backdrop
+   ========================================================================== */
+
+.otp-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+/* ==========================================================================
+   OTP popup — sheet (slides up from bottom)
+   ========================================================================== */
+
+.otp-pop-up {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 50;
+    touch-action: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+
+    padding: 1.5rem 1.25rem 2rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+
+    background: var(--text-clr-02);
+    color: var(--base-clr-02);
+
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.35);
+
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* little drag handle for the "sheet" feel */
+.otp-pop-up::before {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================================================
+   OTP popup — header text
+   ========================================================================== */
+
+.otp-hearder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+}
+
+.otp-hearder .auth-header-h {
+    color: var(--base-clr-02);
+}
+
+.otp-hearder .auth-header-p {
+    width: 90%;
+    font-size: 0.6rem;
+    opacity: 0.75;
+}
+
+.otp-hearder .auth-header-p span {
+    font-weight: 600;
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   OTP popup — input boxes
+   ========================================================================== */
+
+.input-array {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.input-array input {
+    width: 2.6rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.6rem;
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--base-clr-02);
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-array input:focus {
+    border-color: var(--base-clr-02);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.input-array input.otp-error {
+    border-color: var(--crimson-red);
+    box-shadow: 0 0 0 3px rgba(226, 75, 74, 0.2);
+}
+
+
+/* ==========================================================================
+   OTP popup — submit button (inverted colors vs main .btn)
+   ========================================================================== */
+
+.otp-submit {
+    width: 90%;
+}
+
+.otp-submit button {
+    width: 100%;
+    height: 2.6rem;
+    border: none;
+    border-radius: 0.6rem;
+
+    background: var(--base-clr-02);
+    color: var(--text-clr-02);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.otp-submit button:hover {
+    transform: translateY(-2px);
+}
+
+.otp-submit button:active {
+    transform: scale(0.97);
+}
+
+.otp-submit button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==========================================================================
+   OTP popup — resend timer / button
+   ========================================================================== */
+
+.otp-resend {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.otp-resend-text {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.otp-resend-text span {
+    font-weight: 600;
+    opacity: 1;
+}
+
+.otp-resend-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--base-clr-02);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.otp-resend-btn:hover {
+    opacity: 1;
+}
+
+.otp-resend-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

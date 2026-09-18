@@ -1,0 +1,141 @@
+/* ===== Overlay ===== */
+.edit_todo_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 22, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayFadeIn 0.15s ease-out;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Modal ===== */
+.edit_todo_model {
+  width: 100%;
+  max-width: 420px;
+  background: var(--base-clr-01);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(17, 17, 22, 0.18), 0 2px 8px rgba(17, 17, 22, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: modalSlideUp 0.18s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===== Title textarea (auto-grow, 2-line default, max 5 lines) ===== */
+.edit_title_input {
+  width: 100%;
+  min-height: 2.6rem;
+  max-height: 7.5rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-clr-01);
+  background: var(--base-clr-02);
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: hidden;
+  line-height: 1.45;
+}
+
+.edit_title_input::placeholder {
+  color: var(--text-clr-03);
+  font-weight: 400;
+}
+
+.edit_title_input:focus {
+  border-color: #6c5ce7;
+  background: var(--base-clr-02);
+}
+
+/* ===== Row of dropdown controls ===== */
+.edit_todo_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edit_dropdown_wrap {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+/* ===== Shared button styles for the three dropdown triggers ===== */
+.edit_priority_btn,
+.edit_duedate_btn,
+.edit_category_btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-clr-01);
+  border-radius: 8px;
+  background: var(--base-clr-02);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-clr-01);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.edit_priority_btn:hover,
+.edit_duedate_btn:hover,
+.edit_category_btn:hover {
+  border-color: var(--border-clr-01);
+  background: var(--hover-clr-01);
+}
+
+.edit_priority_btn svg,
+.edit_duedate_btn svg,
+.edit_category_btn svg {
+  flex-shrink: 0;
+  color: var(--text-clr-04);
+}
+
+/* ===== Actions ===== */
+.edit_todo_actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Button sizing override for this modal */
+.edit_todo_actions .global-btn,
+.edit_todo_actions .secondary-btn {
+  height: 2.2rem;
+  min-height: 2.2rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .edit_todo_model {
+    max-width: calc(100% - 24px);
+    padding: 16px;
+  }
+
+  .edit_todo_row {
+    flex-direction: column;
+  }
+}

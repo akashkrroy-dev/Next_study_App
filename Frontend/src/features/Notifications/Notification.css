@@ -1,0 +1,105 @@
+/* Notification.css */
+
+.notification_page_layout_wrapper {
+  width: 100%;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--base-clr-01);
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+
+.header_part {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-clr-01);
+}
+
+.header_part > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notification_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* TABS — same pill pattern as .todos_options_show */
+
+.notification_tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.notification_tabs button {
+  padding: 0.35rem 0.875rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--text-clr-02);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.notification_tabs button:hover {
+  background: color-mix(in srgb, var(--border-clr-01) 50%, transparent);
+  color: var(--text-clr-01);
+}
+
+.notification_tabs button.active {
+  background: var(--accent-clr, var(--text-clr-02));
+  color: var(--base-clr-01);
+}
+
+/* LIST AREA */
+
+.noti_main_wrraper {
+  flex: 1;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.state_msg {
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: var(--text-clr-04);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .header_part { padding: 1rem; }
+  .noti_main_wrraper { padding: 0.75rem 1rem 1.25rem; }
+}
+
+.notification_container {
+  height: 100%;
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .notification_heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

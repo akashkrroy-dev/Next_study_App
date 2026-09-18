@@ -1,0 +1,95 @@
+/* Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+/* Clash Display */
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Extralight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Semibold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../assets/fonts/clash-display-font/ClashDisplay-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Coolvetica */
+
+@font-face {
+    font-family: "Coolvetica";
+    src: url("../assets/fonts/coolvetica/Coolvetica Rg.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Coolvetica";
+    src: url("../assets/fonts/coolvetica/Coolvetica Rg It.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Coolvetica Condensed";
+    src: url("../assets/fonts/coolvetica/Coolvetica Rg Cond.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Coolvetica Cram";
+    src: url("../assets/fonts/coolvetica/Coolvetica Rg Cram.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Coolvetica";
+    src: url("../assets/fonts/coolvetica/Coolvetica Hv Comp.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

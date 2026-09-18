@@ -1,0 +1,46 @@
+.globale_header {
+    min-width: 0;
+}
+
+.globale_header h3 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.globale_header p {
+    margin: 0;
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+.globale_header--section h3 {
+    color: var(--text-clr-01);
+    font-family: "Poppins", system-ui, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+}
+
+.globale_header--section p {
+    margin-top: 0.25rem;
+    color: var(--text-clr-04);
+    font-family: "Poppins", system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+.globale_header--dashboard h3 {
+    color: var(--text-clr-01);
+    font-family: "ClashDisplay", "Poppins", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.globale_header--dashboard p {
+    margin-top: 0.35rem;
+    color: var(--text-clr-02);
+    font-family: "Poppins", system-ui, sans-serif;
+    line-height: 1.5;
+}

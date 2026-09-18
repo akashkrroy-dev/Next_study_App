@@ -1,0 +1,77 @@
+.notifications_panel > h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-clr-01);
+  margin: 0 0 6px;
+}
+
+.notifications_panel > .globale_header {
+  margin-bottom: 2rem;
+}
+
+.notification_lable {
+  color: var(--text-clr-04);
+  font-size: 14px;
+  margin: 0 0 28px;
+  max-width: 48ch;
+}
+
+.reminder_row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-clr-01);
+  max-width: 480px;
+}
+
+.reminder_row:last-child {
+  border-bottom: none;
+}
+
+.reminder_text .title {
+  font-size: 15px;
+  color: var(--text-clr-02);
+  margin-bottom: 3px;
+}
+
+.reminder_text .desc {
+  font-size: 13px;
+  color: var(--text-clr-04);
+  max-width: 38ch;
+}
+
+.toggle_btn {
+  position: relative;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background-color: var(--base-clr-03);
+  border: 1px solid var(--border-clr-01);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.toggle_btn::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--base-clr-04);
+  transition: transform .18s ease, background-color .18s ease;
+}
+
+.toggle_btn.on {
+  background-color: rgba(1, 75, 186, 0.18);
+  border-color: var(--royal-blue);
+}
+
+.toggle_btn.on::after {
+  transform: translateX(18px);
+  background-color: var(--royal-blue);
+}

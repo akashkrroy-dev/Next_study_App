@@ -1,0 +1,138 @@
+/* Monthly heatmap, month select, and cell status colors */
+
+.monthly-analytics__actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.monthly-analytics__select-wrap {
+  display: block;
+}
+
+.monthly-analytics__select {
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: var(--radius-sm, 0.4rem);
+  background: var(--base-clr-01);
+  color: var(--text-clr-01);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.monthly-analytics__nav {
+  min-height: 2.25rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--border-clr-01);
+  border-radius: var(--radius-sm, 0.4rem);
+  background: var(--base-clr-01);
+  color: var(--text-clr-01);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.monthly-analytics__nav:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.monthly-analytics__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-clr-02);
+  font-size: 0.7rem;
+}
+
+.monthly-analytics .analytics-loading {
+  min-height: 19rem;
+}
+
+.monthly-analytics {
+  min-height: 19rem;
+}
+
+.monthly-analytics__legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.monthly-analytics__legend i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 0.2rem;
+}
+
+.monthly-analytics__scroll {
+  overflow-x: auto;
+}
+
+.monthly-analytics__grid {
+  display: grid;
+  grid-auto-rows: 1.25rem;
+  gap: 3px;
+  min-width: 52rem;
+}
+
+.monthly-analytics__grid > strong {
+  display: flex;
+  align-items: center;
+  color: var(--text-clr-02);
+  font-size: 0.7rem;
+}
+
+.monthly-analytics__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-clr-02);
+  font: 0.65rem monospace;
+}
+
+.monthly-analytics__row {
+  display: contents;
+}
+
+.monthly-analytics__row > strong {
+  position: sticky;
+  left: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text-clr-01);
+  background: var(--base-clr-01);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.monthly-analytics__cell {
+  width: 1rem;
+  height: 1rem;
+  align-self: center;
+  justify-self: center;
+  border: 1px solid var(--border-clr-01);
+  border-radius: 0.2rem;
+  background: var(--base-clr-03);
+}
+
+.status-present {
+  background: var(--accent-clr) !important;
+}
+
+.status-absent {
+  background: var(--crimson-red, #dc2626) !important;
+  opacity: 0.8;
+}
+
+.status-unrecorded {
+  background: var(--base-clr-03) !important;
+}
+
+.status-future {
+  border-style: dashed;
+  opacity: 0.35;
+}

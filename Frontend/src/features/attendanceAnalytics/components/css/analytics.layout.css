@@ -1,0 +1,77 @@
+/* Layout wrapper, shared card shell, empty/error, and header breakpoints */
+
+.attendance-analytics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.analytics-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem 0.75rem;
+  background: var(--base-clr-01);
+  border: 1px solid var(--border-clr-01);
+  border-radius: 0.75rem;
+}
+
+.analytics-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.875rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-clr-01);
+}
+
+.analytics-card h2 {
+  margin: 0;
+  color: var(--text-clr-01);
+  font-size: 1.1rem;
+}
+
+.analytics-card p {
+  margin: 0.25rem 0 0;
+  color: var(--text-clr-02);
+  font-size: 0.75rem;
+}
+
+.analytics-count {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: var(--accent-clr);
+  background: color-mix(in srgb, var(--accent-clr) 15%, transparent);
+  font-size: 0.75rem;
+}
+
+.analytics-empty,
+.analytics-error {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--text-clr-02);
+}
+
+.analytics-error {
+  color: var(--crimson-red, #dc2626);
+}
+
+@media (max-width: 640px) {
+  .today-analytics__item {
+    align-items: flex-start;
+  }
+
+  .today-analytics__list,
+  .target-analytics__list {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-card__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

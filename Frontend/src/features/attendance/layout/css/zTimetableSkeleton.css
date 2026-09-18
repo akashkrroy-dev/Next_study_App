@@ -1,0 +1,37 @@
+
+.timetable-hour-grid--skeleton {
+  pointer-events: none;
+}
+
+.timetable-hour-grid__class--skeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--base-clr-02);
+  border-left: 3px solid var(--border-clr-01);
+}
+
+.timetable-hour-grid__class--skeleton:hover {
+  background: var(--base-clr-02);
+}
+
+.timetable-hour-grid--skeleton .timetable-hour-grid__day-label {
+  gap: 0.3rem;
+}
+
+.skeleton-bar {
+  display: inline-block;
+  border-radius: 0.3rem;
+}
+
+.skeleton-shimmer {
+  background-color: var(--border-clr-01);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--text-clr-02) 20%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+}

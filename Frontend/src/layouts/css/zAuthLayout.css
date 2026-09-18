@@ -1,0 +1,119 @@
+/* auth layout style — quiet notebook paper */
+.auth-layout {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--base-clr-01);
+
+  --x: 50%;
+  --y: 50%;
+
+  background-image: radial-gradient(var(--dot-clr) 1.15px, transparent 1.15px);
+  background-size: 22px 22px;
+  background-position: -0.5px -0.5px;
+  overflow: hidden;
+
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.auth-layout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: radial-gradient(var(--accent-clr) 1.6px, transparent 1.6px);
+  background-size: 22px 22px;
+  background-position: -0.5px -0.5px;
+
+  filter: drop-shadow(0 0 8px var(--glow-clr));
+
+  -webkit-mask-image: radial-gradient(circle 180px at var(--x) var(--y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle 180px at var(--x) var(--y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%);
+}
+
+.form-card {
+  height: 28rem;
+  width: 23.5rem;
+  position: relative;
+  z-index: 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--base-clr-02);
+  border: 1px solid var(--border-clr-01);
+  box-shadow: 0 18px 50px var(--shadow-clr-01);
+}
+
+.left-line,
+.right-line,
+.top-line,
+.bottom-line {
+  position: fixed;
+  pointer-events: none;
+}
+
+.left-line,
+.right-line {
+  height: 100%;
+  width: 0.08rem;
+  background: repeating-linear-gradient(to bottom,
+      var(--text-clr-04) 0px,
+      var(--text-clr-04) 8px,
+      transparent 8px,
+      transparent 18px);
+  opacity: 0.28;
+}
+
+.top-line,
+.bottom-line {
+  height: 0.08rem;
+  width: 100%;
+  background: repeating-linear-gradient(to right,
+      var(--text-clr-04) 0px,
+      var(--text-clr-04) 8px,
+      transparent 8px,
+      transparent 18px);
+  opacity: 0.28;
+}
+
+.coord-readout {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-clr-04);
+  pointer-events: none;
+}
+
+.ambient-copy {
+  position: absolute;
+  max-width: 18rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--text-clr-04);
+  font-family: var(--font-family-01);
+}
+
+.left-line,
+.right-line,
+.top-line,
+.bottom-line,
+.ambient-copy,
+.coord-readout {
+  pointer-events: none;
+}
+
+.auth-layout::before,
+.auth-layout::after {
+  pointer-events: none;
+}

@@ -1,0 +1,59 @@
+.profile_sidebar_outer_div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 20px 10px;
+  background-color: var(--base-clr-02);
+  border-right: 1px solid var(--border-clr-01);
+}
+
+.profile_preferences,
+.profile_more {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile_preferences p,
+.profile_more p {
+  font-size: 12px;
+  color: var(--base-clr-04);
+  margin: 0 0 8px 12px;
+  text-transform: capitalize;
+}
+
+.profile_preferences div,
+.profile_more div {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  color: var(--text-clr-04);
+  cursor: pointer;
+  text-transform: capitalize;
+  border-left: 2px solid transparent;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.profile_preferences div:hover,
+.profile_more div:hover {
+  background-color: var(--hover-clr-01);
+  color: var(--text-clr-02);
+}
+
+.profile_preferences div.active,
+.profile_more div.active {
+  background-color: var(--hover-clr-01);
+  color: var(--text-clr-01);
+  border-left: 2px solid var(--accent-clr);
+}
+
+.profile_more div:last-child {
+  color: var(--crimson-red);
+}
+
+.profile_more div:last-child:hover {
+  background-color: rgba(221, 4, 38, 0.08);
+  color: var(--crimson-red);
+}
