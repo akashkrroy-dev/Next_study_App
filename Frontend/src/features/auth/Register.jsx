@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import "./css/zRegister.css"
@@ -17,6 +17,7 @@ const Register = () => {
 
   const toast = useToast()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -84,7 +85,7 @@ const Register = () => {
 
   const [form, setForm] = useState({
     username: "",
-    email: "",
+    email: location.state?.email || "",
     password: "",
   })
 

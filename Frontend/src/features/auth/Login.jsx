@@ -182,6 +182,10 @@ const Login = () => {
     } catch (error) {
        const message = error.response?.data?.message || "Something went wrong, please try again"
       toast.error(message)
+
+      if (error.response?.data?.shouldRegister) {
+        navigate("/auth/register", { state: { email: payload.email } })
+      }
       return
     }
   }

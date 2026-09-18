@@ -253,7 +253,8 @@ export const login = async (req, res) => {
         const normalizedEmail = normalizeEmail(email)
 
         const user = await userModel.findOne({ email: normalizedEmail })
-        if (!user || !user.isVerified) { return res.status(400).json({ success: false, message: "user not found or not verified, try to signup" }) }
+        if (!user) { return res.status(404).json({ success: false, shouldRegister: true, message: "No account found with this email" }) }
+        if (!user.isVerified) { return res.status(400).json({ success: false, shouldRegister: true, message: "This email isn't verified yet — please complete signup" }) }
 
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) { return res.status(400).json({ success: false, message: "invalid credentials" }) }
