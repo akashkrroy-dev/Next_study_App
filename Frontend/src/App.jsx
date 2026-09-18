@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useOrientation } from "./hooks/useOrientation.jsx";
 import { useAuthInit } from './config/useAuthInit.js';
@@ -12,35 +12,35 @@ import ThemeSync from './utils/ThemeSync.jsx';
 import { ToastProvider } from './context/ToastContext.jsx'
 import ToastContainer from './components/shared/ToastsContainer.jsx'
 
-import AuthLayout from "./layouts/AuthLayout.jsx"
-import MainLayout from "./layouts/MainLayout.jsx"
-import AdminLayout from "./layouts/AdminLayout.jsx"
+const AuthLayout = lazy(() => import("./layouts/AuthLayout.jsx"))
+const MainLayout = lazy(() => import("./layouts/MainLayout.jsx"))
+const AdminLayout = lazy(() => import("./layouts/AdminLayout.jsx"))
 
-import Register from "./features/auth/Register.jsx"
-import Login from "./features/auth/Login.jsx"
-import ResetPassword from "./features/auth/ResetPassword.jsx"
+const Register = lazy(() => import("./features/auth/Register.jsx"))
+const Login = lazy(() => import("./features/auth/Login.jsx"))
+const ResetPassword = lazy(() => import("./features/auth/ResetPassword.jsx"))
 
-import Dashboard from "./features/dashboard/Dashboard.jsx"
-import Activities from "./pages/app/Activities.jsx"
-import ProfileAndSettings from './features/profile/ProfileSettings.jsx';
-import Account from './features/profile/components/Account.jsx';
-import Notifications from './features/profile/components/Notifications.jsx';
-import Password from './features/profile/components/Password.jsx';
-import Appearance from './features/profile/components/Appearance.jsx';
-import Logout from './features/profile/components/Logout.jsx';
+const Dashboard = lazy(() => import("./features/dashboard/Dashboard.jsx"))
+const Activities = lazy(() => import("./pages/app/Activities.jsx"))
+const ProfileAndSettings = lazy(() => import('./features/profile/ProfileSettings.jsx'));
+const Account = lazy(() => import('./features/profile/components/Account.jsx'));
+const Notifications = lazy(() => import('./features/profile/components/Notifications.jsx'));
+const Password = lazy(() => import('./features/profile/components/Password.jsx'));
+const Appearance = lazy(() => import('./features/profile/components/Appearance.jsx'));
+const Logout = lazy(() => import('./features/profile/components/Logout.jsx'));
 
-import Attendance from './features/attendance/Attendance.jsx';
-import Habits from "./pages/app/Habits.jsx"
-import Todos from "./features/todos/Todos.jsx"
-import Events from "./pages/app/Events.jsx"
-import Notification from './features/Notifications/Notification.jsx';
+const Attendance = lazy(() => import('./features/attendance/Attendance.jsx'));
+const Habits = lazy(() => import("./pages/app/Habits.jsx"))
+const Todos = lazy(() => import("./features/todos/Todos.jsx"))
+const Events = lazy(() => import("./pages/app/Events.jsx"))
+const Notification = lazy(() => import('./features/Notifications/Notification.jsx'));
 
-import AdminDashboard from "./pages/admin/AdminDashboard.jsx"
-import Users from "./pages/admin/Users.jsx"
-import AdminActivities from "./pages/admin/AdminActivities.jsx"
-import AdminSettings from "./pages/admin/AdminSettings.jsx"
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard.jsx"))
+const Users = lazy(() => import("./pages/admin/Users.jsx"))
+const AdminActivities = lazy(() => import("./pages/admin/AdminActivities.jsx"))
+const AdminSettings = lazy(() => import("./pages/admin/AdminSettings.jsx"))
 
-import NotFound from "./pages/error/NotFound.jsx"
+const NotFound = lazy(() => import("./pages/error/NotFound.jsx"))
 
 const App = () => {
   const location = useLocation()
@@ -62,6 +62,7 @@ const App = () => {
       <UserProvider>
         <ToastContainer />
         <ThemeSync />
+      <Suspense fallback={<AppLoadingScreen />}>
       <Routes>
         {/* auth routes */}
         <Route path="/auth" element={<AuthLayout />} >
@@ -120,6 +121,7 @@ const App = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
       </UserProvider>
     </ToastProvider>
   )
