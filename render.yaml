@@ -2,7 +2,7 @@ services:
   - type: web
     name: next-study-app
     runtime: node
-    buildCommand: npm install && npm --prefix Frontend install && npm run build
+    buildCommand: npm install --include=dev && npm --prefix Frontend install --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /health
     envVars:
